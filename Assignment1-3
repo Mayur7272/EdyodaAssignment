@@ -1,0 +1,24 @@
+Assignment 1
+
+  Usecases of daemon set instead of replica set
+    Running a Pod for log collection on all nodes or a monitoring pod
+    Running a cluster storage daemon on every node
+    
+    
+Assignment 2
+By using rolling update
+
+ Steps:- 1. Set minReadySecond to "0" using below command
+          kubectl patch deployment <deployment name> -p '{"spec": {"minReadySeconds": 0}}'
+         2. Set new image     
+          kubectl set image deployment <deployment name> <container name>=<new image name with tag>
+          
+          
+Assignment 3
+  First will check whether application is working in cluster. if it is working then check port mapping and target port
+  else
+  check application at pod level using logs using below command and using curl
+    kubectl logs <pod name>
+    curl localhost:8080
+  check the service created for exposing 
+  
